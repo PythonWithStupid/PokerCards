@@ -3,116 +3,142 @@ from tkinter import *
 from PIL import Image, ImageTk
 
 class Deck(object):
+    
     def __init__(self, surface):
         self.surface = surface
-        self.background = Image.open('table_felt.jpg')
         # All 52-Playing Cards
-        self.images = [  # All the Clubs (2 to King) (13-Cards)
-            Image.open('Playing Cards/PNG-cards-1.3/2_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/3_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/4_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/5_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/6_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/7_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/8_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/9_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/10_of_clubs.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/jack_of_clubs2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/queen_of_clubs2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/king_of_clubs2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/ace_of_clubs.png'),
+        self.all_cards = [ 
+            # List of Clubs
+            ['Graphics/2_of_clubs.png',
+            'Graphics/3_of_clubs.png',
+            'Graphics/4_of_clubs.png',
+            'Graphics/5_of_clubs.png',
+            'Graphics/6_of_clubs.png',
+            'Graphics/7_of_clubs.png',
+            'Graphics/8_of_clubs.png',
+            'Graphics/9_of_clubs.png',
+            'Graphics/10_of_clubs.png',
+            'Graphics/jack_of_clubs2.png',
+            'Graphics/queen_of_clubs2.png',
+            'Graphics/king_of_clubs2.png',
+            'Graphics/ace_of_clubs.png'],
 
-            # All the Spades (2 to King) (12-Cards)
-            Image.open('Playing Cards/PNG-cards-1.3/2_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/3_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/4_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/5_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/6_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/7_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/8_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/9_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/10_of_spades.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/jack_of_spades2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/queen_of_spades2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/king_of_spades2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/ace_of_spades.png'),
+            # List of Diamonds 
+            ['Graphics/2_of_diamonds.png',
+            'Graphics/3_of_diamonds.png',
+            'Graphics/4_of_diamonds.png',
+            'Graphics/5_of_diamonds.png',
+            'Graphics/6_of_diamonds.png',
+            'Graphics/7_of_diamonds.png',
+            'Graphics/8_of_diamonds.png',
+            'Graphics/9_of_diamonds.png',
+            'Graphics/10_of_diamonds.png',
+            'Graphics/jack_of_diamonds2.png',
+            'Graphics/queen_of_diamonds2.png',
+            'Graphics/king_of_diamonds2.png',
+            'Graphics/ace_of_diamonds.png'],
 
-            # All the Hearts (2 to King) (13-Cards)
-            Image.open('Playing Cards/PNG-cards-1.3/2_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/3_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/4_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/5_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/6_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/7_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/8_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/9_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/10_of_hearts.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/jack_of_hearts2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/queen_of_hearts2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/king_of_hearts2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/ace_of_hearts.png'),
+            # List of Hearts 
+            ['Graphics/2_of_hearts.png',
+            'Graphics/3_of_hearts.png',
+            'Graphics/4_of_hearts.png',
+            'Graphics/5_of_hearts.png',
+            'Graphics/6_of_hearts.png',
+            'Graphics/7_of_hearts.png',
+            'Graphics/8_of_hearts.png',
+            'Graphics/9_of_hearts.png',
+            'Graphics/10_of_hearts.png',
+            'Graphics/jack_of_hearts2.png',
+            'Graphics/queen_of_hearts2.png',
+            'Graphics/king_of_hearts2.png',
+            'Graphics/ace_of_hearts.png'],
 
-            # All the Diamonds (2 to King)
-            Image.open('Playing Cards/PNG-cards-1.3/2_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/3_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/4_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/5_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/6_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/7_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/8_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/9_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/10_of_diamonds.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/jack_of_diamonds2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/queen_of_diamonds2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/king_of_diamonds2.png'),
-            Image.open('Playing Cards/PNG-cards-1.3/ace_of_diamonds.png'),
+            # List of Spades 
+            ['Graphics/2_of_spades.png',
+            'Graphics/3_of_spades.png',
+            'Graphics/4_of_spades.png',
+            'Graphics/5_of_spades.png',
+            'Graphics/6_of_spades.png',
+            'Graphics/7_of_spades.png',
+            'Graphics/8_of_spades.png',
+            'Graphics/9_of_spades.png',
+            'Graphics/10_of_spades.png',
+            'Graphics/jack_of_spades2.png',
+            'Graphics/queen_of_spades2.png',
+            'Graphics/king_of_spades2.png',
+            'Graphics/ace_of_spades.png']
+
         ]
+        
+        # A list to store resized images. This stores the cards that 
+        # are already pulled from the deck and stores them in memory so
+        # they can be drawn.
+        self.card_images = []
+        # A copy of the images list that will be used to remove cards
+        # already pulled from the deck.
+        self.images_list_cpy = self.all_cards
+        # A list to keep track of the exposed cards
+        self.exposed_cards = []
 
-        # A list to store resized images.
-        self.resized_cards = []
-        for image in self.images:
-            resizedImg = image.resize((100, 150), Image.ANTIALIAS)
-            newImg = ImageTk.PhotoImage(resizedImg)
-            self.resized_cards.append(newImg)
+
+    def resize_image(self, image, temp_card_list):
+        resizedImg = image.resize((100, 150), Image.ANTIALIAS)
+        newImg = ImageTk.PhotoImage(resizedImg)
+        temp_card_list.append(newImg)
+    
+        return newImg
 
 
-        self.calledCards = []
+    def select_card(self):
+        # Get random suit, then random card from that suit
+        suit_selected = random.choice(self.images_list_cpy)
+        card_selected = random.choice(suit_selected)
+
+        # Remove card from deck
+        self.images_list_cpy = [[card for card in suit if card != card_selected] for suit in self.images_list_cpy]
+        # Add card to exposed_cards list
+        self.exposed_cards.append(card_selected)
+        # Open and resize image
+        card_image = Image.open(card_selected)
+        resized_card_image = self.resize_image(card_image, self.card_images)
+
+        return resized_card_image
+
 
     def draw_hands(self):
-        card_one = random.choice(self.resized_cards)
-        card_two = random.choice(self.resized_cards)
 
-        handPositions = [[(350, 400), (400, 400)]]
-        pos = handPositions
-        self.surface.create_image(pos[0][0], anchor=NW, image=card_one)
-        self.surface.create_image(pos[0][1], anchor=NW, image=card_two)
-        self.calledCards.append(card_one)
-        self.calledCards.append(card_two)
-        self.resized_cards.remove(card_one)
-        self.resized_cards.remove(card_two)
-        print(len(self.resized_cards))
+        # Selet cards from deck
+        card1 = self.select_card()
+        card2 = self.select_card()
+
+        # Postional coordinates for player cards on screen (card1), (card2)
+        pos = [(350, 400), (400, 400)]
+        
+        # Draw player cards on screen
+        self.surface.create_image(pos[0], anchor=NW, image=card1)
+        self.surface.create_image(pos[1], anchor=NW, image=card2)
+
+
     def draw_flop(self):
+       
+        # Selet cards from deck
+        card1 = self.select_card()
+        card2 = self.select_card()
+        card3 = self.select_card()
 
-
-        card_one = random.choice(self.resized_cards)
-        card_two = random.choice(self.resized_cards)
-        card_three = random.choice(self.resized_cards)
-
-        self.surface.create_image(150, 200, anchor=NW, image=card_one)
-        self.surface.create_image(200, 200, anchor=NW, image=card_two)
-        self.surface.create_image(250, 200, anchor=NW, image=card_three)
-        self.calledCards.append(card_one)
-        self.resized_cards.remove(card_one)
-        self.calledCards.append(card_two)
-        self.resized_cards.remove(card_two)
-        self.calledCards.append(card_three)
-
-
-
-        self.resized_cards.remove(card_three)
-
+         # Positional coordinates for flop cards on screen (card1), (card2), (card3)
+        pos = [(150, 200), (270, 200), (390, 200)]
+       
+        # Draw the cards
+        self.surface.create_image(pos[0], anchor=NW, image=card1)
+        self.surface.create_image(pos[1], anchor=NW, image=card2)
+        self.surface.create_image(pos[2], anchor=NW, image=card3)
+        
 
     def draw_one(self, x, y):
-        card_one = random.choice(self.resized_cards)
 
-        self.surface.create_image(x, y, anchor=NW, image=card_one)
+        # Selet card from deck
+        card = self.select_card()
+
+        # Draw the card
+        self.surface.create_image((x + 120), y, anchor=NW, image=card)
